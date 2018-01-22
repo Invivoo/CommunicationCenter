@@ -1,0 +1,9 @@
+.custom-footer{
+    height: 80px;
+    bottom: 5;
+    width: 100%;
+    padding-top: 15px;
+    text-align: center;
+    background-color: #0B236B;
+    color : white ;
+}
