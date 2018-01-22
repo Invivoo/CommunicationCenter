@@ -1,0 +1,21 @@
+<div class="login-section">
+  <div class="container text-center">
+      <div>
+        <h1><img src="http://www.invivoo.com/wp-content/uploads/logo-invivoo-it-finance.png" width="200" height="92"  /></h1>
+        <div class="container container--small user-login-form">
+          <dx-form
+          [(formData)]="login"
+          [customizeItem]="form_customizeItem"
+          validationGroup="groupName">
+          </dx-form>
+          <div class="submit-button">
+          <dx-button
+          validationGroup="groupName"
+          type="default"
+          [useSubmitBehavior]="true">
+      </dx-button>
+           </div>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'invivoo-user-welcome',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserWelcomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router : Router) { }
 
   ngOnInit() {
+  }
+
+  redirectLogin() : void {
+      this._router.navigateByUrl('/userLogin');
+  
   }
 
 }

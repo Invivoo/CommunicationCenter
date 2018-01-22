@@ -1,0 +1,15 @@
+.login-section{
+    padding: 8% 0 15%;
+    min-height: 600px;
+    height: 100%;
+}
+
+.user-login-form {
+    padding: 5% ;
+    max-width: 650px;
+}
+
+.submit-button{
+    padding: 5% ;
+}
+

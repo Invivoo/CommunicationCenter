@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserWelcomeComponent  } from './user-welcome/user-welcome.component' ; 
 import { SharedModule } from '../shared/shared.module';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   imports: [
@@ -9,10 +10,12 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   declarations: [
-    UserWelcomeComponent
+    UserWelcomeComponent,
+    AuthComponent
   ],
   exports : [
-    UserWelcomeComponent
+    UserWelcomeComponent,
+    AuthComponent
   ]
 })
 export class UserModule { }
