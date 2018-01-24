@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserWelcomeComponent  } from './user-welcome/user-welcome.component' ; 
 import { SharedModule } from '../shared/shared.module';
 import { AuthComponent } from './auth/auth.component';
+import { UserSummaryComponent } from './summary/user-summary/user-summary.component';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { AuthComponent } from './auth/auth.component';
   ],
   declarations: [
     UserWelcomeComponent,
-    AuthComponent
+    AuthComponent,
+    UserSummaryComponent
   ],
   exports : [
     UserWelcomeComponent,

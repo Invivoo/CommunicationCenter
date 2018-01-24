@@ -5,10 +5,16 @@
     <a class="navbar-brand" href="#"> <img src="http://www.invivoo.com/wp-content/uploads/logo-invivoo-it-finance.png" width="111" height="50" alt=""></a>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto menu-float">
-        <li class="nav-item active">
+      <ul *showAuthed="false" class="navbar-nav mr-auto menu-float">
+          <li class="nav-item active" style="display : inline-block;">
           <a class="nav-link menu-link-text" [routerLink]="['/userLogin']">Login <span class="sr-only">(current)</span></a>
         </li>
       </ul>
+      <ul *showAuthed="true" class="navbar-nav mr-auto menu-float">
+        <li class="nav-item active" style="display : inline-block;">
+        <a class="nav-link menu-link-text" [routerLink]="['/userSummary']" >Summary</a>
+        <a class="nav-link menu-link-text"> <dx-button text="Logout" type="default"  (onClick)="logout()"></dx-button> </a>
+      </li>
+    </ul>
     </div>
   </nav>

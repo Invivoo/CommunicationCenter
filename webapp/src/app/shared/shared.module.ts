@@ -4,7 +4,12 @@ import { RouterModule } from '@angular/router';
 import { DxButtonModule,DxFormModule } from 'devextreme-angular';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { ShowAuthedDirective } from './directives/show.authed.directive';
 
+
+// Importing Services and guards
+import { UserAuthGuard} from './services/guards/user.auth.guard';
+import { FakeAuthService } from './services/services/fake.auth.service';
 
 var dependencies = [ 
   CommonModule,
@@ -13,11 +18,20 @@ var dependencies = [
   DxFormModule
 ];
 
-var expoerts_array = dependencies.concat([HeaderComponent,FooterComponent]) ;
+
 
 @NgModule({
   imports: dependencies ,
-  exports : expoerts_array ,
-  declarations: [HeaderComponent, FooterComponent]
+  exports : [ 
+    CommonModule,
+    RouterModule ,
+    DxButtonModule,
+    DxFormModule , 
+    HeaderComponent, 
+    FooterComponent ,
+    ShowAuthedDirective
+  ] ,
+  declarations: [HeaderComponent, FooterComponent ,ShowAuthedDirective],
+  providers : [FakeAuthService , UserAuthGuard ]
 })
 export class SharedModule { }

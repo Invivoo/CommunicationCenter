@@ -5,7 +5,11 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module'
 import { UserWelcomeComponent } from './user/user-welcome/user-welcome.component';
+import { UserSummaryComponent} from './user/summary/user-summary/user-summary.component'
 import { AuthComponent  } from './user/auth/auth.component'
+
+// Guards 
+import { UserAuthGuard } from './shared/services/guards/user.auth.guard'
 
 @NgModule({
   declarations: [
@@ -23,10 +27,14 @@ import { AuthComponent  } from './user/auth/auth.component'
       {
         path : 'userLogin',
         component : AuthComponent
+      },      {
+        path : 'userSummary',
+        component : UserSummaryComponent,
+        canActivate : [UserAuthGuard]
       }
     ])
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

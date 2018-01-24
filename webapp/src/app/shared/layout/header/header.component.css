@@ -1,5 +1,5 @@
 .menu-float {
-    margin-left: 85% ;
+    margin-left: 75% ;
 }
 
 .inviv-header{
@@ -9,4 +9,5 @@
 .menu-link-text {
     font-weight: bold;
     color : #0B236B !important;
+    display: inline-block;
 }
