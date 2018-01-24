@@ -13,3 +13,7 @@
     padding: 5% ;
 }
 
+
+* /deep/ input[type='submit']{
+    display: none !important ;
+}

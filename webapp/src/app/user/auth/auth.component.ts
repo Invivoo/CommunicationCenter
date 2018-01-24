@@ -6,23 +6,19 @@ import { Login  } from '../../shared/models/login.model'
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent {
 
-  login = {
-    Login: "",
-    Password: ""
-}
-form_customizeItem (item) {
-    if (item.dataField === "Login" || item.dataField === "Password") {
-        item.validationRules = [{
-            type: "required",
-            message: "The value is required"
-        }]
+    login : Login = {
+        Login: "",
+        Password: ""
     }
-}
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  submitLogin(){
+    if((this.login.Login !== "") && (this.login.Password !== "")) {
+            /*  TODO : Insert longin logic here  */
+        }
+    }
 
 }

@@ -5,15 +5,17 @@
         <div class="container container--small user-login-form">
           <dx-form
           [(formData)]="login"
-          [customizeItem]="form_customizeItem"
-          validationGroup="groupName">
+          [readOnly]="false"
+          validationGroup="loginGroup">
+          <dxi-item dataField="Login">
+            <dxi-validation-rule type="required" message="Login is required"></dxi-validation-rule>
+          </dxi-item>
+          <dxi-item [editorOptions]="{ mode: 'password' }" dataField="Password">
+            <dxi-validation-rule type="required" message="Password is required"></dxi-validation-rule>
+          </dxi-item>
           </dx-form>
           <div class="submit-button">
-          <dx-button
-          validationGroup="groupName"
-          type="default"
-          [useSubmitBehavior]="true">
-      </dx-button>
+          <dx-button validationGroup="loginGroup"  type="default" [useSubmitBehavior]="true" (onClick)="submitLogin()" text="Submit" ></dx-button>
            </div>
         </div>
     </div>
