@@ -1,8 +1,27 @@
-<p>
-  Integrate User Summary Dashboard Here
-</p>
-
-<div>
+<div class="page-header">
+  <h4>Summary of {{ user.Name }}</h4>
 </div>
-
+<div class="row curves">
+  <div class="col-md-6">
+    <dx-chart
+    id="chart"
+    [dataSource]="vivs">
+    <dxi-series
+        argumentField="Month"
+        valueField="Amount"
+        name="My vivs"
+        type="bar"
+        color="#06143D">
+    </dxi-series>
+    <dxo-argument-axis [tickInterval]="5">
+      <dxo-label>
+          <dxo-overlapping-behavior
+              mode="rotate"
+              [rotationAngle]="90">
+          </dxo-overlapping-behavior>
+      </dxo-label>
+  </dxo-argument-axis>
+</dx-chart>
+  </div>
+</div>
 

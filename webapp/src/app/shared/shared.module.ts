@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { DxButtonModule,DxFormModule } from 'devextreme-angular';
+import { DxButtonModule,DxFormModule , DxChartModule } from 'devextreme-angular';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { ShowAuthedDirective } from './directives/show.authed.directive';
@@ -12,7 +12,8 @@ var dependencies = [
   CommonModule,
   RouterModule ,
   DxButtonModule,
-  DxFormModule
+  DxFormModule,
+  DxChartModule
 ];
 
 
@@ -26,7 +27,8 @@ var dependencies = [
     DxFormModule , 
     HeaderComponent, 
     FooterComponent ,
-    ShowAuthedDirective
+    ShowAuthedDirective,
+    DxChartModule
   ] ,
   declarations: [HeaderComponent, FooterComponent ,ShowAuthedDirective],
   providers : [FakeAuthService , UserAuthGuard ]
