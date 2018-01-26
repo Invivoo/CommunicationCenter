@@ -5,9 +5,6 @@ import { DxButtonModule,DxFormModule } from 'devextreme-angular';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { ShowAuthedDirective } from './directives/show.authed.directive';
-
-
-// Importing Services and guards
 import { UserAuthGuard} from './services/guards/user.auth.guard';
 import { FakeAuthService } from './services/services/fake.auth.service';
 

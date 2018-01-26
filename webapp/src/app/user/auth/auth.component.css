@@ -17,3 +17,9 @@
 * /deep/ input[type='submit']{
     display: none !important ;
 }
+
+
+.small-logo-invivoo{
+    width: 200 ;
+    height : 92;
+}

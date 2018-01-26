@@ -5,7 +5,6 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 @Injectable()
-
 export class FakeAuthService implements IAuthService  {
     
     private loggedIn : boolean = false ;
