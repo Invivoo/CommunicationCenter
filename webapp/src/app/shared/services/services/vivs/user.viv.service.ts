@@ -9,7 +9,7 @@ export class UserVivService {
 
     constructor(){}
     
-    calculateTotalVivsPerMonth(vivs : Array<Viv>) : Observable<Array<VivVM>> {
+    public calculateTotalVivsPerMonth(vivs : Array<Viv>) : Observable<Array<VivVM>> {
         
         var vivsVM = new Array<VivVM>();
         for(var i = 0 ; i < 11;i++) {
@@ -17,7 +17,6 @@ export class UserVivService {
             var uvpm = vpm.filter(function(el){ return el.IsUsed == true;});
             var amt = vpm.reduce(this.add,0);
             var uamt = uvpm.reduce(this.add,0);
-            console.log('Used Amount is : ' + uamt);
             var vm = new VivVM(MONTHS[i],amt,uamt); 
             vivsVM.push(vm); 
          }
@@ -28,7 +27,4 @@ export class UserVivService {
     private add(a, b : Viv) {
         return a + b.Amount;
       }    
-
-
-
 }

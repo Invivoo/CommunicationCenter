@@ -2,7 +2,7 @@
   <h4>Summary of {{ user.Name }}</h4>
 </div>
 <div class="row curves">
-  <div class="col-md-6">
+  <div class="col-md-5">
     <dx-chart
     id="chart"
     title="Viv summary"
@@ -30,5 +30,31 @@
     <dxo-export [enabled]="true"></dxo-export>
 </dx-chart>
   </div>
+
+  <div class="col-md-6 col-md-offset-1">
+    <dx-chart
+        palette="violet"
+        [dataSource]="holidays">
+        <dxi-series valueField="CPPAmount" name="Total CPP" color="#06143D"></dxi-series>
+        <dxi-series valueField="RTTAmount" name="Total RTT" color="#62687f"></dxi-series>
+        <dxo-common-series-settings  argumentField="Month" [type]="line"> </dxo-common-series-settings>
+        <dxo-margin [bottom]="20"></dxo-margin>
+        <dxo-argument-axis [valueMarginsEnabled]="false" discreteAxisDivisionMode="crossLabels">
+        <dxo-grid [visible]="true"></dxo-grid>
+        </dxo-argument-axis>
+        <dxo-label>
+                <dxo-overlapping-behavior
+                    mode="rotate"
+                    [rotationAngle]="90">
+                </dxo-overlapping-behavior>
+            </dxo-label>
+        <dxo-title text="Holidays accumulation summary"></dxo-title>
+        <dxo-legend verticalAlignment="bottom" horizontalAlignment="center" itemTextPosition="bottom">
+    </dxo-legend>
+    <dxo-export [enabled]="true"></dxo-export>
+    <dxo-tooltip  [enabled]="true" [customizeTooltip]="customizeTooltip"></dxo-tooltip>
+    </dx-chart>
+  </div>
+
 </div>
 
