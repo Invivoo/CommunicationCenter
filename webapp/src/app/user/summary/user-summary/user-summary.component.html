@@ -3,32 +3,9 @@
 </div>
 <div class="row curves">
   <div class="col-md-5">
-    <dx-chart
-    id="chart"
-    title="Viv summary"
-    [dataSource]="vivs">
-    <dxi-series valueField="Amount" name="Total amount" color="#06143D"></dxi-series>
-    <dxi-series valueField="UsedAmount" name="Used amount" color="#62687f" ></dxi-series>
-    <dxo-argument-axis [tickInterval]="5">
-      <dxo-label>
-          <dxo-overlapping-behavior
-              mode="rotate"
-              [rotationAngle]="90">
-          </dxo-overlapping-behavior>
-      </dxo-label>
-    </dxo-argument-axis>
-    <dxo-common-series-settings
-        argumentField="Month"
-        type="bar"
-        hoverMode="allArgumentPoints"
-        selectionMode="allArgumentPoints">
-    </dxo-common-series-settings>
-    <dxo-legend
-        verticalAlignment="bottom"
-        horizontalAlignment="center">
-    </dxo-legend>
-    <dxo-export [enabled]="true"></dxo-export>
-</dx-chart>
+  <app-user-viv-curve></app-user-viv-curve>
+<br/>
+<dx-button  type="default" (onClick)="convert()" text="Convert my vivs" class="convert-button" ></dx-button>
   </div>
 
   <div class="col-md-6 col-md-offset-1">
@@ -55,6 +32,7 @@
     <dxo-tooltip  [enabled]="true" [customizeTooltip]="customizeTooltip"></dxo-tooltip>
     </dx-chart>
   </div>
-
 </div>
+
+
 

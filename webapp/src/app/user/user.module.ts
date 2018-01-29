@@ -4,6 +4,8 @@ import { UserWelcomeComponent  } from './user-welcome/user-welcome.component' ;
 import { SharedModule } from '../shared/shared.module';
 import { AuthComponent } from './auth/auth.component';
 import { UserSummaryComponent } from './summary/user-summary/user-summary.component';
+import { UserVivComponent } from './viv/user-viv/user-viv.component';
+import { UserVivCurveComponent } from './viv/user-viv-curve/user-viv-curve.component';
 
 @NgModule({
   imports: [
@@ -13,7 +15,9 @@ import { UserSummaryComponent } from './summary/user-summary/user-summary.compon
   declarations: [
     UserWelcomeComponent,
     AuthComponent,
-    UserSummaryComponent
+    UserSummaryComponent,
+    UserVivComponent,
+    UserVivCurveComponent
   ],
   exports : [
     UserWelcomeComponent,

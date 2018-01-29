@@ -1,0 +1,15 @@
+.balance-card{
+    margin-top : 8%;
+    background-color: #06143D ;
+    color : white ;
+    padding: 2%;
+}
+
+.report-title{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.conversion-form {
+    padding: 5% ;
+}

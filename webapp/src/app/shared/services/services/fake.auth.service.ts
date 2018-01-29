@@ -23,7 +23,7 @@ export class FakeAuthService implements IAuthService  {
 
         var vivs = new Array<Viv>();
         vivs.push(new Viv(new Date(),'Job Interview','Interview with Person',10,true,true)); 
-        vivs.push(new Viv(new Date(),'Article','Article About front end expertise',10,true,true)); 
+        vivs.push(new Viv(new Date(),'Article','Article About front end expertise',10,true,false)); 
         vivs.push(new Viv(new Date(),'Interview','Interview with a new agent',10,true,false)); 
 
         var holidays = new Array<Holiday>();

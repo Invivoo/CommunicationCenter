@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module'
 import { UserWelcomeComponent } from './user/user-welcome/user-welcome.component';
 import { UserSummaryComponent} from './user/summary/user-summary/user-summary.component'
-import { AuthComponent  } from './user/auth/auth.component'
+import { AuthComponent  } from './user/auth/auth.component';
+import { UserVivComponent } from './user/viv/user-viv/user-viv.component';
 
 import { UserAuthGuard } from './shared/services/guards/user.auth.guard'
 
@@ -26,9 +27,14 @@ import { UserAuthGuard } from './shared/services/guards/user.auth.guard'
       {
         path : 'userLogin',
         component : AuthComponent
-      },      {
+      }, {
         path : 'userSummary',
         component : UserSummaryComponent,
+        canActivate : [UserAuthGuard]
+      },
+      {
+        path : 'userVivConvert',
+        component : UserVivComponent,
         canActivate : [UserAuthGuard]
       }
     ])

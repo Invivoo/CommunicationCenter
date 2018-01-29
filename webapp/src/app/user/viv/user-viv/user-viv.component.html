@@ -1,0 +1,42 @@
+<div class="row curves">
+    <div class="col-md-4">
+    <app-user-viv-curve></app-user-viv-curve>
+    <div class="card balance-card text-center z-depth-2">
+        <div class="card-body">
+            <p class="white-text mb-0"> Your balance is </p>
+            <h1> {{ vivAmount }}  Viv</h1>
+        </div>
+    </div>
+
+    </div>
+  
+<div class="col-md-7 col-md-offset-1">
+  
+    <div class="card conversion-form">
+        <p> You can convert : </p>
+        <dx-form
+        [(formData)]="formVM"
+        [readOnly]="false"
+        validationGroup="loginGroup">
+        <dxi-item dataField="Amount">
+          <dxi-validation-rule type="required" message="Amount is required"></dxi-validation-rule>
+        </dxi-item>
+        <dx-radio-group [dataSource]="radioGroupItems" displayExpr="text" valueExpr="color"value="green"></dx-radio-group>
+        </dx-form>
+      </div>
+
+
+   <p class="report-title"> Report </p>  
+  <dx-data-grid 
+    id="vivsGrid"
+    [dataSource]="vivs">    
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager 
+        [showInfo]="true">
+    </dxo-pager>
+    <dxi-column dataField="Label"></dxi-column>
+    <dxi-column dataField="Comment" co ></dxi-column>
+    <dxi-column dataField="IsValidated" [width]="75"></dxi-column>
+</dx-data-grid>
+</div>
+  </div>

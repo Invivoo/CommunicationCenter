@@ -3,6 +3,7 @@ import { VivVM } from '../../../models/viewModels/viv.viewmodel';
 import { Viv , MONTHS } from '../../../models/viv.model';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import { ninvoke } from 'q';
 
 @Injectable()
 export class UserVivService {
@@ -20,8 +21,15 @@ export class UserVivService {
             var vm = new VivVM(MONTHS[i],amt,uamt); 
             vivsVM.push(vm); 
          }
-
          return Observable.of(vivsVM);
+    }
+
+
+    public calculateVivBalance(vivs : Array<Viv> ) : Observable<number> {
+        var aviv = vivs.filter(function(el){ return el.IsUsed == false && el.IsValidated == true});
+        console.log(aviv);
+        var balance = aviv.reduce(this.add, 0);
+        return Observable.of(balance);
     }
     
     private add(a, b : Viv) {
