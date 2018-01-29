@@ -3204,7 +3204,7 @@
 }
 @font-face {
     font-family: 'DXIcons';
-    src: url(icons/dxicons.woff) format('woff'), url(icons/dxicons.ttf) format('truetype');
+    src: url(icons/dxicons.woff) format('woff'), url(assets/dxicons.ttf) format('truetype');
     font-weight: normal;
     font-style: normal;
 }

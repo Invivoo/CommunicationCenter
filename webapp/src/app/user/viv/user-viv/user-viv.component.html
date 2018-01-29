@@ -14,15 +14,23 @@
   
     <div class="card conversion-form">
         <p> You can convert : </p>
-        <dx-form
-        [(formData)]="formVM"
-        [readOnly]="false"
-        validationGroup="loginGroup">
-        <dxi-item dataField="Amount">
-          <dxi-validation-rule type="required" message="Amount is required"></dxi-validation-rule>
-        </dxi-item>
-        <dx-radio-group [dataSource]="radioGroupItems" displayExpr="text" valueExpr="color"value="green"></dx-radio-group>
-        </dx-form>
+        <dx-number-box
+                    [(value)]="amountToChange"
+                    [showSpinButtons]="true"
+                    [min]="50"
+                    format="#0"
+                    step = "50"           
+                ></dx-number-box>
+         <p class="for-label"> For </p>
+         <dx-select-box
+                    [(value)]="conversionType"
+                    [items]="types"
+                    [grouped]="true"
+                    displayExpr="name"
+                    valueExpr="value"
+                ></dx-select-box>
+          <br/>
+         <dx-button type="primary" text="Convert"></dx-button>     
       </div>
 
   <div class="card card-report">

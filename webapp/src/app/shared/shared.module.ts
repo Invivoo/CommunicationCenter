@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { DxButtonModule,DxFormModule , DxChartModule, DxDataGridModule , DxRadioGroupModule } from 'devextreme-angular';
+import { DxButtonModule,DxFormModule , DxChartModule, DxDataGridModule , DxRadioGroupModule , DxNumberBoxModule , DxSelectBoxModule } from 'devextreme-angular';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { ShowAuthedDirective } from './directives/show.authed.directive';
@@ -17,7 +17,9 @@ var dependencies = [
   DxFormModule,
   DxChartModule,
   DxDataGridModule,
-  DxRadioGroupModule
+  DxRadioGroupModule,
+  DxNumberBoxModule,
+  DxSelectBoxModule
 ];
 
 
@@ -34,7 +36,9 @@ var dependencies = [
     ShowAuthedDirective,
     DxChartModule,
     DxDataGridModule,
-    DxRadioGroupModule
+    DxRadioGroupModule,
+    DxNumberBoxModule,
+    DxSelectBoxModule
   ] ,
   declarations: [HeaderComponent, FooterComponent ,ShowAuthedDirective],
   providers : [FakeAuthService , UserAuthGuard ,UserVivService , UserHolidayService ]

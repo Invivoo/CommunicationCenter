@@ -17,8 +17,10 @@ export class UserVivComponent implements OnInit {
 
   private user : User ; 
   private vivAmount : number = 0;
+  private amountToChange : number = 0 ;
   private vivs : Array<Viv> ;
   formVM : UserVivRequestModel = new UserVivRequestModel();
+  types : any[] = [{ name : 'Money' , value : 'MONEY' },{ name : 'Holidays' , value : 'HOLIDAYS' }]
 
   radioGroupItems = [ 'Holidays' , 'Money'];
 
