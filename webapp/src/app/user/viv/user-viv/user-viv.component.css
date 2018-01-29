@@ -6,10 +6,14 @@
 }
 
 .report-title{
-    margin-top: 5%;
     margin-bottom: 5%;
 }
 
 .conversion-form {
     padding: 5% ;
+}
+
+.card-report{
+    margin-top: 5%;
+    padding: 3%;
 }
