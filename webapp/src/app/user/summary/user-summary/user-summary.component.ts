@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '../../../shared/models/user.model';
 import { Viv , MONTHS } from '../../../shared/models/viv.model';
 import { VivVM } from '../../../shared/models/viewModels/viv.viewmodel'; 
+import { UserVivService } from '../../../shared/services/services/vivs/user.viv.service'
 
 @Component({
   selector: 'app-user-summary',
@@ -12,27 +13,18 @@ import { VivVM } from '../../../shared/models/viewModels/viv.viewmodel';
 })
 export class UserSummaryComponent implements OnInit {
 
-  constructor( private auth : FakeAuthService , private router : Router ) { }
+  constructor( private auth : FakeAuthService , 
+              private router : Router, 
+              private vs : UserVivService
+            ) { }
   
   private user : User ;
-  private vivs : Array<VivVM> = new Array<VivVM>() ;
+  private vivs : Array<VivVM> ;
 
   ngOnInit() {
     this.user = this.auth.getCUrrentUser(); 
-    this.calculateVivsAmout();
+    this.vs.calculateTotalVivsPerMonth(this.user.Vivs).subscribe( data  => this.vivs = data);  
   }
   
-  calculateVivsAmout(){
-    for(var i = 0 ; i < 11;i++) {
-       var vpm = this.user.Vivs.filter(function(el){ return el.Month == MONTHS[i]});
-       var amt = vpm.reduce(add,0);
-       var vm = new VivVM(MONTHS[i],amt); 
-       this.vivs.push(vm); 
-    }
-
-    function add(a, b : Viv) {
-      return a + b.Amount;
-    }
-  }
 }
 

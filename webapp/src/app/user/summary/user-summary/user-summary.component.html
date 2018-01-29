@@ -5,14 +5,10 @@
   <div class="col-md-6">
     <dx-chart
     id="chart"
+    title="Viv summary"
     [dataSource]="vivs">
-    <dxi-series
-        argumentField="Month"
-        valueField="Amount"
-        name="My vivs"
-        type="bar"
-        color="#06143D">
-    </dxi-series>
+    <dxi-series valueField="Amount" name="Total amount" color="#06143D"></dxi-series>
+    <dxi-series valueField="UsedAmount" name="Used amount" color="#62687f" ></dxi-series>
     <dxo-argument-axis [tickInterval]="5">
       <dxo-label>
           <dxo-overlapping-behavior
@@ -20,7 +16,18 @@
               [rotationAngle]="90">
           </dxo-overlapping-behavior>
       </dxo-label>
-  </dxo-argument-axis>
+    </dxo-argument-axis>
+    <dxo-common-series-settings
+        argumentField="Month"
+        type="bar"
+        hoverMode="allArgumentPoints"
+        selectionMode="allArgumentPoints">
+    </dxo-common-series-settings>
+    <dxo-legend
+        verticalAlignment="bottom"
+        horizontalAlignment="center">
+    </dxo-legend>
+    <dxo-export [enabled]="true"></dxo-export>
 </dx-chart>
   </div>
 </div>

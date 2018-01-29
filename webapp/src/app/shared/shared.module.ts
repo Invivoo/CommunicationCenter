@@ -7,6 +7,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { ShowAuthedDirective } from './directives/show.authed.directive';
 import { UserAuthGuard} from './services/guards/user.auth.guard';
 import { FakeAuthService } from './services/services/fake.auth.service';
+import { UserVivService } from './services/services/vivs/user.viv.service';
 
 var dependencies = [ 
   CommonModule,
@@ -31,6 +32,6 @@ var dependencies = [
     DxChartModule
   ] ,
   declarations: [HeaderComponent, FooterComponent ,ShowAuthedDirective],
-  providers : [FakeAuthService , UserAuthGuard ]
+  providers : [FakeAuthService , UserAuthGuard ,UserVivService ]
 })
 export class SharedModule { }
