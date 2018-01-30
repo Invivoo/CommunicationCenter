@@ -1,0 +1,71 @@
+<div class="row curves">
+    <div class="col-md-4">
+    <app-user-viv-curve></app-user-viv-curve>
+    <div class="card balance-card text-center z-depth-2">
+        <div class="card-body">
+            <p class="white-text mb-0"> Your balance is </p>
+            <h1> {{ vivAmount }}  Viv</h1>
+        </div>
+    </div>
+
+    </div>
+  
+<div class="col-md-7 col-md-offset-1">
+    <div class="card conversion-form" >
+            <div class="alert alert-success"  role="alert" *ngIf="submitted" >
+                    <button type="button" class="close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                    <strong>Success!</strong> Your request had been submitted to our admin <a class="alert-link" [routerLink]="['/userVivRequests']">Check requests</a>.
+            </div>
+
+            <div class="alert alert-danger"  role="alert" *ngIf="notEnoughVivs" >
+                    <button type="button" class="close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                    <strong>Error!</strong> You don't have enough vivs.
+            </div>
+
+        <p> You can convert : </p>
+        <dx-form [(formData)]="formVM" [showRequiredMark]="true">
+            <dxi-item dataField="Amount" editorType="dxNumberBox" 
+                [editorOptions]="{ showSpinButtons : true,min : 50,step : 50 }">
+                <dxi-validation-rule type="required" message="Amount is required"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item dataField="Mode" editorType="dxSelectBox" 
+            [editorOptions]="{
+                dataSource: modes,
+                placeholder: ''
+            }">
+            <dxi-validation-rule
+                type="required"
+                message="Location is required">
+            </dxi-validation-rule>
+        </dxi-item>
+        </dx-form>
+        <br/>
+        <dx-button type="primary"
+        (onClick)="convert()"
+        text="Convert">
+    </dx-button>
+        </div>
+
+  <div class="card card-report">
+   <p class="report-title"> Report </p>  
+  <dx-data-grid 
+    id="vivsGrid"
+    [dataSource]="vivs"
+    [showRowLines]="true"
+    [showBorders]="true"
+    [rowAlternationEnabled]="true">    
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager 
+        [showInfo]="true">
+    </dxo-pager>
+    <dxi-column dataField="Label"></dxi-column>
+    <dxi-column dataField="Comment"  ></dxi-column>
+    <dxi-column dataField="IsValidated" [width]="75"></dxi-column>
+</dx-data-grid>
+</div>
+</div>
+  </div>

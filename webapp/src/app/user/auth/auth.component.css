@@ -1,0 +1,25 @@
+.login-section{
+    padding: 8% 0 15%;
+    min-height: 600px;
+    height: 100%;
+}
+
+.user-login-form {
+    padding: 5% ;
+    max-width: 650px;
+}
+
+.submit-button{
+    padding: 5% ;
+}
+
+
+* /deep/ input[type='submit']{
+    display: none !important ;
+}
+
+
+.small-logo-invivoo{
+    width: 200 ;
+    height : 92;
+}

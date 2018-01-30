@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+.dx-button-submit-input {
+    background-color: #0b236b !important ;
+    color : white !important ;
+    border-style: none !important ; 
+}

@@ -1,0 +1,13 @@
+.menu-float {
+    margin-left: 60% ;
+}
+
+.inviv-header{
+    padding: 3%;
+}
+
+.menu-link-text {
+    font-weight: bold;
+    color : #0B236B !important;
+    display: inline-block;
+}
