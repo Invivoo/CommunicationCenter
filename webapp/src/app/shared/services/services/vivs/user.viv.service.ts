@@ -27,7 +27,6 @@ export class UserVivService {
 
     public calculateVivBalance(vivs : Array<Viv> ) : Observable<number> {
         var aviv = vivs.filter(function(el){ return el.IsUsed == false && el.IsValidated == true});
-        console.log(aviv);
         var balance = aviv.reduce(this.add, 0);
         return Observable.of(balance);
     }

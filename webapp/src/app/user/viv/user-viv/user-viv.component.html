@@ -11,27 +11,30 @@
     </div>
   
 <div class="col-md-7 col-md-offset-1">
-  
     <div class="card conversion-form">
         <p> You can convert : </p>
-        <dx-number-box
-                    [(value)]="amountToChange"
-                    [showSpinButtons]="true"
-                    [min]="50"
-                    format="#0"
-                    step = "50"           
-                ></dx-number-box>
-         <p class="for-label"> For </p>
-         <dx-select-box
-                    [(value)]="conversionType"
-                    [items]="types"
-                    [grouped]="true"
-                    displayExpr="name"
-                    valueExpr="value"
-                ></dx-select-box>
-          <br/>
-         <dx-button type="primary" text="Convert"></dx-button>     
-      </div>
+        <dx-form [(formData)]="formVM" [showRequiredMark]="true">
+            <dxi-item dataField="Amount" editorType="dxNumberBox" 
+                [editorOptions]="{ showSpinButtons : true,min : 50,step : 50 }">
+                <dxi-validation-rule type="required" message="Amount is required"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item dataField="Mode" editorType="dxSelectBox" 
+            [editorOptions]="{
+                dataSource: modes,
+                placeholder: ''
+            }">
+            <dxi-validation-rule
+                type="required"
+                message="Location is required">
+            </dxi-validation-rule>
+        </dxi-item>
+        </dx-form>
+        <br/>
+        <dx-button type="primary"
+        (onClick)="convert()"
+        text="Convert">
+    </dx-button>
+        </div>
 
   <div class="card card-report">
    <p class="report-title"> Report </p>  
@@ -43,7 +46,7 @@
         [showInfo]="true">
     </dxo-pager>
     <dxi-column dataField="Label"></dxi-column>
-    <dxi-column dataField="Comment" co ></dxi-column>
+    <dxi-column dataField="Comment"  ></dxi-column>
     <dxi-column dataField="IsValidated" [width]="75"></dxi-column>
 </dx-data-grid>
 </div>
