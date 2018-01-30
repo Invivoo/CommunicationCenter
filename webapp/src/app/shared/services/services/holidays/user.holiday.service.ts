@@ -3,12 +3,18 @@ import { Observable } from 'rxjs/Observable';
 import { Holiday } from '../../../models/holiday.model';
 import { HolidayVM } from '../../../models/viewModels/holiday.viewmodel';
 import { MONTHS  } from '../../../models/viv.model';
+import { FakeAuthService  } from '../fake.auth.service';
 import 'rxjs/add/observable/of';
 
 @Injectable()
 export class UserHolidayService {
     
-      constructor(){}
+      constructor(private fa : FakeAuthService){}
+      
+      public getHolidays() : Observable<Array<Holiday>> {
+            return  Observable.of(this.fa.getCUrrentUser().Holidays);
+
+      }
 
       public calculateCumulatedHolidaysPerMonth( holidays : Array<Holiday> ) : Observable<Array<HolidayVM>>  {
             var holidaysVM = new Array<HolidayVM>();

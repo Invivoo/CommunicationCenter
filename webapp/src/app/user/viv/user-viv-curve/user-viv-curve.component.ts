@@ -4,6 +4,7 @@ import { Router } from '@angular/router'
 import { VivVM } from '../../../shared/models/viewModels/viv.viewmodel';
 import {FakeAuthService} from '../../../shared/services/services/fake.auth.service';
 import { UserVivService } from '../../../shared/services/services/vivs/user.viv.service';
+import { Viv } from '../../../shared/models/viv.model';
 
 @Component({
   selector: 'app-user-viv-curve',
@@ -21,7 +22,14 @@ export class UserVivCurveComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.auth.getCUrrentUser();
-    this.vs.calculateTotalVivsPerMonth(this.user.Vivs).subscribe( data  => this.vivs = data);
+    
+     this.vs.getVivs().subscribe(data => this.updateScreenData(data));
+  }
+
+  updateScreenData(data : Array<Viv>){
+    var tvivs : Array<Viv> ;
+    tvivs = data;
+    this.vs.calculateTotalVivsPerMonth(tvivs).subscribe( data  => this.vivs = data);
   }
 
 }

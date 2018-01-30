@@ -26,7 +26,12 @@ export class UserSummaryComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.auth.getCUrrentUser();
-    this.hs.calculateCumulatedHolidaysPerMonth(this.user.Holidays as Array<Holiday>).subscribe(data => this.holidays = data) ;  
+     this.hs.getHolidays().subscribe(data => this.updateScreenData(data));
+    
+  }
+
+  updateScreenData(holidays : Array<Holiday>){
+    this.hs.calculateCumulatedHolidaysPerMonth(holidays).subscribe(data => this.holidays = data) ;  
   }
 
   convert(){

@@ -27,10 +27,17 @@ export class UserVivComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.auth.getCUrrentUser();
-    this.vs.calculateVivBalance(this.user.Vivs).subscribe(val => this.vivAmount = val);
-    this.vivs = this.user.Vivs;
+    let uvivs : Array<Viv>; 
+    this.vs.getVivs().subscribe(data => this.updateScreenData(data));
+    
+    
   }
 
+  updateScreenData(data : Array<Viv>){
+    this.vivs = data;
+    this.vs.calculateVivBalance(this.vivs).subscribe(val => this.vivAmount = val);
+  }
+   
   convert(){
      let result : any = this.form.instance.validate();
      let notEnough = (this.formVM.Amount > this.vivAmount);     

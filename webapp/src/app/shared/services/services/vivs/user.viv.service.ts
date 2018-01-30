@@ -2,12 +2,17 @@ import { Injectable } from '@angular/core';
 import { VivVM } from '../../../models/viewModels/viv.viewmodel';
 import { Viv , MONTHS } from '../../../models/viv.model';
 import { Observable } from 'rxjs/Observable';
+import { FakeAuthService } from '../fake.auth.service';
 import 'rxjs/add/observable/of';
 
 @Injectable()
 export class UserVivService {
 
-    constructor(){}
+    constructor( private fas : FakeAuthService ){}
+    
+    public getVivs() : Observable<Array<Viv>> {
+       return Observable.of(this.fas.getCUrrentUser().Vivs);       
+    }
     
     public calculateTotalVivsPerMonth(vivs : Array<Viv>) : Observable<Array<VivVM>> {
         
