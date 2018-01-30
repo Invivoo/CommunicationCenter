@@ -9,6 +9,7 @@ import { UserAuthGuard} from './services/guards/user.auth.guard';
 import { FakeAuthService } from './services/services/fake.auth.service';
 import { UserVivService } from './services/services/vivs/user.viv.service';
 import { UserHolidayService } from './services/services/holidays/user.holiday.service';
+import { UserWelcomeAuthGuard } from '../shared/services/guards/user.welcome.guard';
 
 var dependencies = [ 
   CommonModule,
@@ -41,6 +42,6 @@ var dependencies = [
     DxSelectBoxModule
   ] ,
   declarations: [HeaderComponent, FooterComponent ,ShowAuthedDirective],
-  providers : [FakeAuthService , UserAuthGuard ,UserVivService , UserHolidayService ]
+  providers : [FakeAuthService , UserAuthGuard ,UserVivService , UserHolidayService , UserWelcomeAuthGuard ]
 })
 export class SharedModule { }

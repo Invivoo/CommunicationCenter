@@ -8,7 +8,7 @@ import { UserWelcomeComponent } from './user/user-welcome/user-welcome.component
 import { UserSummaryComponent} from './user/summary/user-summary/user-summary.component'
 import { AuthComponent  } from './user/auth/auth.component';
 import { UserVivComponent } from './user/viv/user-viv/user-viv.component';
-
+import  { UserWelcomeAuthGuard } from './shared/services/guards/user.welcome.guard';
 import { UserAuthGuard } from './shared/services/guards/user.auth.guard'
 
 @NgModule({
@@ -22,11 +22,13 @@ import { UserAuthGuard } from './shared/services/guards/user.auth.guard'
     RouterModule.forRoot([
       {
         path: '',
-        component: UserWelcomeComponent
+        component: UserWelcomeComponent,
+        canActivate : [UserWelcomeAuthGuard]
       }, 
       {
         path : 'userLogin',
-        component : AuthComponent
+        component : AuthComponent,
+        canActivate : [UserWelcomeAuthGuard]
       }, {
         path : 'userSummary',
         component : UserSummaryComponent,

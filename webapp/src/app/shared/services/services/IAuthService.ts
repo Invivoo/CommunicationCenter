@@ -6,4 +6,8 @@ export interface IAuthService {
     logout() : void ;
     isLoggedIn() : Observable<boolean>;
     getCUrrentUser() : User ;
+    redirectAfterSuccess : string;
+    redirectAfterFail : string; 
+    localStorageLabel : string;
+    redirectToProfile : string ;
 }

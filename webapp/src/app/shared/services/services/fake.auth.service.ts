@@ -14,6 +14,7 @@ export class FakeAuthService implements IAuthService  {
     public redirectAfterSuccess = '/userSummary';
     public redirectAfterFail = '/userLogin'; 
     public localStorageLabel = 'currentUser';
+    public redirectToProfile = '/userSummary';
 
     constructor() { }
 
