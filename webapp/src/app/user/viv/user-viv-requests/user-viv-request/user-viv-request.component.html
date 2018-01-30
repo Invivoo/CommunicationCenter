@@ -1,0 +1,17 @@
+<dx-data-grid 
+id="vivsGrid"
+[dataSource]="requests"
+[showRowLines]="true"
+[showBorders]="true"
+[rowAlternationEnabled]="true" >    
+<dxo-paging [pageSize]="20"></dxo-paging>
+<dxo-pager 
+    [showInfo]="true">
+</dxo-pager>
+<dxi-column dataField="RequestDate"></dxi-column>
+<dxi-column dataField="VivAmount" ></dxi-column>
+<dxi-column dataField="Method"  ></dxi-column>
+<dxi-column dataField="Reward"></dxi-column>
+<dxi-column dataField="State"></dxi-column>
+<dxo-export [enabled]="true"></dxo-export>
+</dx-data-grid>

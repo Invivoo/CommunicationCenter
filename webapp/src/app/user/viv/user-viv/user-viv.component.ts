@@ -5,7 +5,7 @@ import { UserVivService } from '../../../shared/services/services/vivs/user.viv.
 import { Viv } from '../../../shared/models/viv.model';
 import { UserVivRequestModel } from '../../../shared/models/viewModels/userVivRequest.viemodel';
 import { UserHolidayService } from '../../../shared/services/services/holidays/user.holiday.service';
-import {DxFormComponent } from 'devextreme-angular'
+import {DxFormComponent } from 'devextreme-angular';
 
 @Component({
   selector: 'app-user-viv',
@@ -22,7 +22,8 @@ export class UserVivComponent implements OnInit {
   private vivs : Array<Viv> ;
   formVM : UserVivRequestModel = new UserVivRequestModel();
   modes : any[] = ["Money","Holidays"];
-
+  submitted : boolean = false;
+  notEnoughVivs : boolean = false ;
 
   ngOnInit() {
     this.user = this.auth.getCUrrentUser();
@@ -32,8 +33,15 @@ export class UserVivComponent implements OnInit {
 
   convert(){
      let result : any = this.form.instance.validate();
-     if(result.isValid){
+     let notEnough = (this.formVM.Amount > this.vivAmount);     
+     
+     if(notEnough){
+          this.notEnoughVivs = true ; 
+     }
+
+     if(result.isValid && !notEnough){
            // TODO : Submit data to concerned service
+           this.submitted = true;
      }
   }
 

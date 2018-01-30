@@ -9,6 +9,7 @@ import { UserAuthGuard} from './services/guards/user.auth.guard';
 import { FakeAuthService } from './services/services/fake.auth.service';
 import { UserVivService } from './services/services/vivs/user.viv.service';
 import { UserHolidayService } from './services/services/holidays/user.holiday.service';
+import { UserVivRequestService } from '../shared/services/services/vivs/user.viv.request';
 import { UserWelcomeAuthGuard } from '../shared/services/guards/user.welcome.guard';
 
 var dependencies = [ 
@@ -44,6 +45,7 @@ var dependencies = [
     DxValidatorModule,
   ] ,
   declarations: [HeaderComponent, FooterComponent ,ShowAuthedDirective],
-  providers : [FakeAuthService , UserAuthGuard ,UserVivService , UserHolidayService , UserWelcomeAuthGuard ]
+  providers : [FakeAuthService , UserAuthGuard ,UserVivService , 
+              UserHolidayService , UserWelcomeAuthGuard , UserVivRequestService ]
 })
 export class SharedModule { }

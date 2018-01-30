@@ -11,7 +11,21 @@
     </div>
   
 <div class="col-md-7 col-md-offset-1">
-    <div class="card conversion-form">
+    <div class="card conversion-form" >
+            <div class="alert alert-success"  role="alert" *ngIf="submitted" >
+                    <button type="button" class="close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                    <strong>Success!</strong> Your request had been submitted to our admin <a class="alert-link" [routerLink]="['/userVivRequests']">Check requests</a>.
+            </div>
+
+            <div class="alert alert-danger"  role="alert" *ngIf="notEnoughVivs" >
+                    <button type="button" class="close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                    <strong>Error!</strong> You don't have enough vivs.
+            </div>
+
         <p> You can convert : </p>
         <dx-form [(formData)]="formVM" [showRequiredMark]="true">
             <dxi-item dataField="Amount" editorType="dxNumberBox" 
@@ -40,7 +54,10 @@
    <p class="report-title"> Report </p>  
   <dx-data-grid 
     id="vivsGrid"
-    [dataSource]="vivs">    
+    [dataSource]="vivs"
+    [showRowLines]="true"
+    [showBorders]="true"
+    [rowAlternationEnabled]="true">    
     <dxo-paging [pageSize]="10"></dxo-paging>
     <dxo-pager 
         [showInfo]="true">

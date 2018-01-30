@@ -3,7 +3,6 @@ import { VivVM } from '../../../models/viewModels/viv.viewmodel';
 import { Viv , MONTHS } from '../../../models/viv.model';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-import { ninvoke } from 'q';
 
 @Injectable()
 export class UserVivService {

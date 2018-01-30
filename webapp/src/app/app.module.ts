@@ -5,15 +5,18 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module'
 import { UserWelcomeComponent } from './user/user-welcome/user-welcome.component';
-import { UserSummaryComponent} from './user/summary/user-summary/user-summary.component'
+import { UserSummaryComponent} from './user/summary/user-summary/user-summary.component';
+import { UserVivRequestComponent } from './user/viv/user-viv-requests/user-viv-request/user-viv-request.component';
 import { AuthComponent  } from './user/auth/auth.component';
 import { UserVivComponent } from './user/viv/user-viv/user-viv.component';
 import  { UserWelcomeAuthGuard } from './shared/services/guards/user.welcome.guard';
-import { UserAuthGuard } from './shared/services/guards/user.auth.guard'
+import { UserAuthGuard } from './shared/services/guards/user.auth.guard';
+import { NotFoundComponent  } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,15 @@ import { UserAuthGuard } from './shared/services/guards/user.auth.guard'
         path : 'userVivConvert',
         component : UserVivComponent,
         canActivate : [UserAuthGuard]
+      },
+      {
+        path : 'userVivRequests',
+        component : UserVivRequestComponent,
+        canActivate : [UserAuthGuard]
+      },
+      {
+        path : '**',
+        component : NotFoundComponent 
       }
     ])
   ],

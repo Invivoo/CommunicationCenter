@@ -6,6 +6,7 @@ import { AuthComponent } from './auth/auth.component';
 import { UserSummaryComponent } from './summary/user-summary/user-summary.component';
 import { UserVivComponent } from './viv/user-viv/user-viv.component';
 import { UserVivCurveComponent } from './viv/user-viv-curve/user-viv-curve.component';
+import { UserVivRequestComponent } from './viv/user-viv-requests/user-viv-request/user-viv-request.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { UserVivCurveComponent } from './viv/user-viv-curve/user-viv-curve.compo
     AuthComponent,
     UserSummaryComponent,
     UserVivComponent,
-    UserVivCurveComponent
+    UserVivCurveComponent,
+    UserVivRequestComponent
   ],
   exports : [
     UserWelcomeComponent,
